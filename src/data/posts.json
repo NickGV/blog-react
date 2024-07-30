@@ -1,0 +1,121 @@
+[
+  {
+    "id": 1,
+    "title": "First Post",
+    "content": "# First Post\n\nThis is the first example post. Here you can see how Markdown is displayed.\n\n## Subtitle\n\n- List item 1\n- List item 2\n\n**Bold text** and *italic text*.",
+    "tags": ["example", "markdown", "introduction"],
+    "image": "https://via.placeholder.com/250",
+    "comments": [
+      {
+        "author": "User1",
+        "comment": "Great post! I loved the Markdown format."
+      },
+      {
+        "author": "User2",
+        "comment": "Interesting, but I think you could add more details about the subtitle."
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "First Post",
+    "content": "# First Post\n\nThis is the first example post. Here you can see how Markdown is displayed.\n\n## Subtitle\n\n- List item 1\n- List item 2\n\n**Bold text** and *italic text*.",
+    "tags": ["example", "markdown", "introduction"],
+    "image": "https://via.placeholder.com/250",
+    "comments": [
+      {
+        "author": "User1",
+        "comment": "Great post! I loved the Markdown format."
+      },
+      {
+        "author": "User2",
+        "comment": "Interesting, but I think you could add more details about the subtitle."
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "First Post",
+    "content": "# First Post\n\nThis is the first example post. Here you can see how Markdown is displayed.\n\n## Subtitle\n\n- List item 1\n- List item 2\n\n**Bold text** and *italic text*.",
+    "tags": ["example", "markdown", "introduction"],
+    "image": "https://via.placeholder.com/250",
+    "comments": [
+      {
+        "author": "User1",
+        "comment": "Great post! I loved the Markdown format."
+      },
+      {
+        "author": "User2",
+        "comment": "Interesting, but I think you could add more details about the subtitle."
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "First Post",
+    "content": "# First Post\n\nThis is the first example post. Here you can see how Markdown is displayed.\n\n## Subtitle\n\n- List item 1\n- List item 2\n\n**Bold text** and *italic text*.",
+    "tags": ["example", "markdown", "introduction"],
+    "image": "https://via.placeholder.com/250",
+    "comments": [
+      {
+        "author": "User1",
+        "comment": "Great post! I loved the Markdown format."
+      },
+      {
+        "author": "User2",
+        "comment": "Interesting, but I think you could add more details about the subtitle."
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "title": "First Post",
+    "content": "# First Post\n\nThis is the first example post. Here you can see how Markdown is displayed.\n\n## Subtitle\n\n- List item 1\n- List item 2\n\n**Bold text** and *italic text*.",
+    "tags": ["example", "markdown", "introduction"],
+    "image": "https://via.placeholder.com/250",
+    "comments": [
+      {
+        "author": "User1",
+        "comment": "Great post! I loved the Markdown format."
+      },
+      {
+        "author": "User2",
+        "comment": "Interesting, but I think you could add more details about the subtitle."
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "title": "First Post",
+    "content": "# First Post\n\nThis is the first example post. Here you can see how Markdown is displayed.\n\n## Subtitle\n\n- List item 1\n- List item 2\n\n**Bold text** and *italic text*.",
+    "tags": ["example", "markdown", "introduction"],
+    "image": "https://via.placeholder.com/250",
+    "comments": [
+      {
+        "author": "User1",
+        "comment": "Great post! I loved the Markdown format."
+      },
+      {
+        "author": "User2",
+        "comment": "Interesting, but I think you could add more details about the subtitle."
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "title": "Second Post",
+    "content": "# Second Post\n\nThis is the second example post. Here is more Markdown content.\n\n> This is a quote.\n\n```javascript\nconst greeting = 'Hello, world';\nconsole.log(greeting);\n```\n\n![Example Image](https://via.placeholder.com/250)",
+    "tags": ["example", "markdown", "javascript"],
+    "image": "https://via.placeholder.com/250",
+    "comments": [
+      {
+        "author": "User3",
+        "comment": "Very useful, thanks for sharing the code!"
+      },
+      {
+        "author": "User4",
+        "comment": "I'd like to see more examples with JavaScript."
+      }
+    ]
+  } 
+]
