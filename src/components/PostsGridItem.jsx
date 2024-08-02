@@ -16,7 +16,7 @@ export const PostsGridItem = ({ post }) => {
           />
         </div>
         <div className="absolute inset-0 flex items-center justify-center">
-          <h1 className="font-bold text-sm md:text-3xl text-white text-shadow-lg bg-opacity-60 p-2 rounded transition-transform duration-300 group-hover:scale-105">
+          <h1 className="font-bold text-sm md:text-3xl text-white text-center text-shadow-lg bg-opacity-60 p-2 rounded transition-transform duration-300 group-hover:scale-105">
             {post.title}
           </h1>
         </div>

@@ -14,6 +14,7 @@ export default {
         "gray-hovered": "#454545",
         "orange-btn": "#ff8906",
         "white-text": "#fffffe",
+        "sing-bg": "#297493",
       },
       height: {
         93: "93%",
@@ -35,11 +36,20 @@ export default {
             h2: {
               color: theme("colors.gray-text"),
             },
+            h3: {
+              color: theme("colors.gray-text"),
+            },
             p: {
               color: theme("colors.white-text"),
             },
             strong: {
               color: theme("colors.orange-btn"),
+            },
+            li: {
+              color: theme("colors.white-text"),
+            },
+            th: {
+              color: theme("colors.white-text"),
             },
           },
         },

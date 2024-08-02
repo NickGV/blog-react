@@ -5,19 +5,30 @@ import { HomePage } from "./pages/HomePage";
 import { ExplorePage } from "./pages/ExplorePage";
 import { PostPage } from "./pages/PostPage";
 import { CreatePage } from "./pages/CreatePage";
+import { SignUpPage } from "./pages/SingUpPage";
+import { useState } from "react";
 
 function App() {
+  const [isLogin, setIsLogin] = useState(false);
+  const handleLogin = () => {
+    setIsLogin(true);
+  };
+
   return (
     <>
-      <PostsProvider>
-        <NavBar />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/explore" element={<ExplorePage />} />
-          <Route path="/post/new" element={<CreatePage />} />
-          <Route path="/post/:id" element={<PostPage />} />
-        </Routes>
-      </PostsProvider>
+      {isLogin ? (
+        <PostsProvider>
+          <NavBar />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/explore" element={<ExplorePage />} />
+            <Route path="/post/new" element={<CreatePage />} />
+            <Route path="/post/:id" element={<PostPage />} />
+          </Routes>
+        </PostsProvider>
+      ) : (
+        <SignUpPage handleLogin={handleLogin} />
+      )}
     </>
   );
 }
