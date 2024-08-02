@@ -1,4 +1,5 @@
 import { useState } from "react";
+import singUpImg from "../assets/singUpImg.jpeg";
 
 export const SignUpPage = ({ handleLogin }) => {
   const [email, setEmail] = useState("");
@@ -67,9 +68,9 @@ export const SignUpPage = ({ handleLogin }) => {
       </div>
       <div className="order-1 md:order-2 md:w-96  md:h-96 ">
         <img
-          src="https://th.bing.com/th/id/OIG2.nFMfjrc7Wc7XsXDHac0r?w=270&h=270&c=6&r=0&o=5&pid=ImgGn"
+          src={singUpImg}
           alt=""
-          className="w-full h-full rounded-full opacity-50"
+          className="w-full h-full shadow-md shadow-white rounded-full"
         />
       </div>
     </div>
