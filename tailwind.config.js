@@ -3,6 +3,10 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      textShadow: {
+        default: "0 0 3px rgba(0, 0, 0, 0.7)",
+        lg: "0 0 5px rgba(0, 0, 0, 0.7)",
+      },
       colors: {
         "gray-bg": "#323231",
         "black-bg": "#121212",
@@ -42,5 +46,18 @@ export default {
       }),
     },
   },
-  plugins: [require("@tailwindcss/typography")],
+  plugins: [
+    require("@tailwindcss/typography"),
+    function ({ addUtilities }) {
+      const newUtilities = {
+        ".text-shadow": {
+          textShadow: "0 0 3px rgba(0, 0, 0, 0.7)",
+        },
+        ".text-shadow-lg": {
+          textShadow: "0 0 5px rgba(0, 0, 0, 0.7)",
+        },
+      };
+      addUtilities(newUtilities, ["responsive", "hover"]);
+    },
+  ],
 };

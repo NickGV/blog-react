@@ -14,7 +14,7 @@ export const PostPage = () => {
 
   return (
     <>
-      <div className="container mx-auto flex w-full h-3/5 overflow-y-auto p-4">
+      <div className="container mx-auto flex w-full h-screen overflow-y-auto p-4">
         <Post post={post} />
       </div>
     </>

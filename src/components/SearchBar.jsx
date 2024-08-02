@@ -5,7 +5,7 @@ export const SearchBar = () => {
         <input
           type="text"
           placeholder="Search blogs..."
-          className="w-full bg-transparent rounded-md border border-stroke dark:border-dark-3 py-2.5 px-4 text-dark-6 outline-none transition focus:border-white focus:ring focus:ring-orange-400"
+          className="w-full bg-transparent rounded-md border border-stroke dark:border-dark-3 py-2.5 px-4 text-dark-6 outline-none transition  focus:border-gray-700"
         />
         <button
           type="button"
