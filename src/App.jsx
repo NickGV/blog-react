@@ -7,6 +7,7 @@ import { PostPage } from "./pages/PostPage";
 import { CreatePage } from "./pages/CreatePage";
 import { SignUpPage } from "./pages/SingUpPage";
 import { useState } from "react";
+import { WelcomePage } from "./pages/WelcomePage";
 
 function App() {
   const [isLogin, setIsLogin] = useState(false);
@@ -27,7 +28,7 @@ function App() {
           </Routes>
         </PostsProvider>
       ) : (
-        <SignUpPage handleLogin={handleLogin} />
+        <WelcomePage handleLogin={handleLogin} />
       )}
     </>
   );
