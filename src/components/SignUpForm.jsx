@@ -9,6 +9,10 @@ export const SignUpForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!username || !email || !password || !confirmPassword) {
+      setError("All fields are required");
+      return;
+    }
     if (password !== confirmPassword) {
       setError("Passwords do not match");
       return;

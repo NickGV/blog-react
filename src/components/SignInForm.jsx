@@ -7,6 +7,10 @@ export const SignInForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!email || !password) {
+      setError("All fields are required");
+      return;
+    }
     // Perform sign-in logic here
     // You can make an API call or save the user data in a database
 
