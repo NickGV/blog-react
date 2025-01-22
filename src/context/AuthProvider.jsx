@@ -39,7 +39,7 @@ export const AuthProvider = ({ children }) => {
         throw new Error(data.error);
       }
     } catch (error) {
-      console.error("Login failed:", error);
+      throw new Error(error);
     }
   };
 
@@ -64,7 +64,7 @@ export const AuthProvider = ({ children }) => {
         throw new Error(data.error);
       }
     } catch (error) {
-      console.error("Signup failed:", error);
+      throw new Error(error);
     }
   };
 
