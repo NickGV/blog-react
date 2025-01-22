@@ -1,23 +1,23 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
 
 export const SignInForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const { login } = useContext(AuthContext);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!email || !password) {
       setError("All fields are required");
       return;
     }
-    // Perform sign-in logic here
-    // You can make an API call or save the user data in a database
-
-    // Reset form fields and error message
-    setEmail("");
-    setPassword("");
-    setError("");
+    try {
+      await login(email, password);
+    } catch (error) {
+      setError(error.message);
+    }
   };
 
   return (
