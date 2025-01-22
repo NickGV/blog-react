@@ -5,9 +5,9 @@ import { HomePage } from "./pages/HomePage";
 import { ExplorePage } from "./pages/ExplorePage";
 import { PostPage } from "./pages/PostPage";
 import { CreatePage } from "./pages/CreatePage";
-import { SignUpPage } from "./pages/SingUpPage";
 import { useState } from "react";
 import { WelcomePage } from "./pages/WelcomePage";
+import { AuthPage } from "./pages/AuthPage";
 
 function App() {
   const [isLogin, setIsLogin] = useState(false);
@@ -28,7 +28,10 @@ function App() {
           </Routes>
         </PostsProvider>
       ) : (
-        <WelcomePage handleLogin={handleLogin} />
+        <Routes>
+          <Route path="/" element={<WelcomePage handleLogin={handleLogin} />} />
+          <Route path="/auth" element={<AuthPage />} />
+        </Routes>
       )}
     </>
   );
