@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import singUpImg from "../assets/singUpImg.jpeg";
 
-export const WelcomePage = ({ handleLogin }) => {
+export const WelcomePage = () => {
   return (
     <div className="flex flex-col md:flex-row justify-center items-center h-screen gap-8 text-white w-full bg-gray-bg p-4">
       <div className="text-center md:text-left order-2 md:order-1 p-4 max-w-md">
@@ -13,14 +13,12 @@ export const WelcomePage = ({ handleLogin }) => {
           a guest or become a member to enjoy more features.
         </p>
         <div className="flex flex-col md:flex-row gap-4">
-          <button
-            className="w-full 
-            md:w-auto p-4
-           bg-orange-btn hover:bg-gray-hovered font-semibold rounded"
-            onClick={handleLogin}
+          <Link
+            className="w-full md:w-auto p-4 bg-orange-btn hover:bg-gray-hovered font-semibold rounded"
+            to="/home"
           >
             Explore as Guest
-          </button>
+          </Link>
           <Link
             className="w-full md:w-auto p-4 bg-orange-btn hover:bg-gray-hovered font-semibold rounded"
             to="/auth"

@@ -1,6 +1,5 @@
 import { NavBar } from "./components/NavBar";
-import { Route, Routes } from "react-router-dom";
-import { PostsProvider } from "./context/PostsProvider";
+import { Route, Routes, Navigate } from "react-router-dom";
 import { HomePage } from "./pages/HomePage";
 import { ExplorePage } from "./pages/ExplorePage";
 import { PostPage } from "./pages/PostPage";
@@ -15,22 +14,25 @@ export const Layout = () => {
 
   return (
     <>
-      {isAuthenticated ? (
-        <PostsProvider>
-          <NavBar />
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/explore" element={<ExplorePage />} />
-            <Route path="/post/new" element={<CreatePage />} />
-            <Route path="/post/:id" element={<PostPage />} />
-          </Routes>
-        </PostsProvider>
-      ) : (
+      <NavBar />
+      <div className="content">
         <Routes>
-          <Route path="/" element={<WelcomePage />} />
+          <Route
+            path="/"
+            element={
+              isAuthenticated ? <HomePage /> : <Navigate to="/welcome" />
+            }
+          />
+          <Route path="/home" element={<HomePage />} />
+          <Route path="/explore" element={<ExplorePage />} />
+          <Route path="/post/:id" element={<PostPage />} />
+          {isAuthenticated && (
+            <Route path="/post/new" element={<CreatePage />} />
+          )}
           <Route path="/auth" element={<AuthPage />} />
+          <Route path="/welcome" element={<WelcomePage />} />
         </Routes>
-      )}
+      </div>
     </>
   );
 };
