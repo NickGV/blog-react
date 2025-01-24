@@ -22,7 +22,7 @@ export const ExplorePage = () => {
   ];
   const allTags = posts.map((post) => post.tags);
   const tags = [...new Set(allTags.flat())];
-  console.log(posts)
+
   const handleSortChange = (value) => {
     setSortBy(value);
     setIsDropdownOpen(false);
@@ -45,14 +45,14 @@ export const ExplorePage = () => {
     const filteredPosts = posts.filter((post) => post.tags.includes(tag));
     setFilteredPosts(filteredPosts);
     setFilterByTag(tag);
-};
+  };
 
   return (
-    <div className="text-white p-4 w-full flex flex-col gap-4 h-screen overflow-y-auto">
+    <div className="text-white p-4 w-full flex flex-col gap-4 mt-16">
       <SearchBar />
-      <div className="flex flex-wrap gap-2  w-full">
+      <div className="flex flex-wrap gap-2 w-full">
         {tags.map((tag) => (
-        <button
+          <button
             key={tag}
             onClick={() => handleTagFilter(tag)}
             className={`${

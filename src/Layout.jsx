@@ -15,7 +15,7 @@ export const Layout = () => {
   return (
     <>
       <NavBar />
-      <div className="content">
+      <div className="w-full">
         <Routes>
           <Route
             path="/"

@@ -3,7 +3,7 @@ import singUpImg from "../assets/singUpImg.jpeg";
 
 export const WelcomePage = () => {
   return (
-    <div className="flex flex-col md:flex-row justify-center items-center h-screen gap-8 text-white w-full bg-gray-bg p-4">
+    <div className="flex flex-col md:flex-row justify-center items-center h-screen gap-8 text-white w-full bg-gray-bg p-4 mt-16">
       <div className="text-center md:text-left order-2 md:order-1 p-4 max-w-md">
         <h2 className="text-5xl font-bold mb-4 text-shadow-lg">
           Welcome to Blogi & start exploring

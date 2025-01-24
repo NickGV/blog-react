@@ -8,7 +8,7 @@ export const AuthPage = () => {
   const [isSignUp, setIsSignUp] = useState(true);
 
   return (
-    <div className="flex flex-col md:flex-row justify-center items-center h-screen gap-8 text-white w-full bg-gray-bg p-4">
+    <div className="flex flex-col md:flex-row justify-center items-center h-screen gap-8 text-white w-full bg-gray-bg p-4 mt-16">
       <div className="text-center md:text-left order-2 md:order-1 p-4 max-w-md">
         <Link
           to="/"

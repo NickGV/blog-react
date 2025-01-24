@@ -40,7 +40,7 @@ export const CreatePage = () => {
   };
 
   return (
-    <div className="flex flex-col lg:flex-row w-full h-screen p-4 gap-4">
+    <div className="flex flex-col lg:flex-row w-full h-screen p-4 gap-4 mt-16">
       <div
         className={`${
           showPreview ? "hidden" : ""
