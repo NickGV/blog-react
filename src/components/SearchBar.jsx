@@ -1,19 +1,28 @@
-export const SearchBar = () => {
+import { useState } from "react";
+
+export const SearchBar = ({ handleSearch }) => {
+  const [query, setQuery] = useState("");
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    handleSearch(query);
+  };
+
   return (
-    <div className="w-full md:px-4 mb-4">
-      <div className="relative">
-        <input
-          type="text"
-          placeholder="Search blogs..."
-          className="w-full bg-transparent rounded-md border border-stroke dark:border-dark-3 py-2.5 px-4 text-dark-6 outline-none transition  focus:border-gray-700"
-        />
-        <button
-          type="button"
-          className="absolute inset-y-0 right-0 px-3 py-2.5 text-gray-500 hover:text-gray-700 focus:outline-none"
-        >
-          <i className="fa-solid fa-magnifying-glass"></i>
-        </button>
-      </div>
-    </div>
+    <form onSubmit={onSubmit} className="flex w-full md:w-auto">
+      <input
+        type="text"
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+        placeholder="Search blogs..."
+        className="w-full p-2 rounded-l bg-black-bg text-white border border-gray-700 focus:outline-none"
+      />
+      <button
+        type="submit"
+        className="p-2 bg-orange-btn text-white rounded-r hover:bg-gray-hovered"
+      >
+        Search
+      </button>
+    </form>
   );
 };

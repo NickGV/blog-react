@@ -14,6 +14,13 @@ export const ExplorePage = () => {
     setFilteredPosts(posts);
   }, [posts]);
 
+  const handleSearch = (query) => {
+    const searchResults = posts.filter((post) =>
+      post.title.toLowerCase().includes(query.toLowerCase())
+    );
+    setFilteredPosts(searchResults);
+  };
+
   const sortOptions = [
     { value: "date-desc", label: "Date (most recent)" },
     { value: "date-asc", label: "Date (oldest)" },
@@ -26,7 +33,7 @@ export const ExplorePage = () => {
   const handleSortChange = (value) => {
     setSortBy(value);
     setIsDropdownOpen(false);
-    const sortedPosts = [...posts].sort((a, b) => {
+    const sortedPosts = [...filteredPosts].sort((a, b) => {
       if (value === "date-desc") {
         return new Date(b.date) - new Date(a.date);
       } else if (value === "date-asc") {
@@ -49,7 +56,7 @@ export const ExplorePage = () => {
 
   return (
     <div className="text-white p-4 w-full flex flex-col gap-4 mt-16">
-      <SearchBar />
+      <SearchBar handleSearch={handleSearch} />
       <div className="flex flex-wrap gap-2 w-full">
         {tags.map((tag) => (
           <button
@@ -107,7 +114,7 @@ export const ExplorePage = () => {
       </div>
 
       <h1 className="text-2xl font-bold mt-4">Explore</h1>
-      {filteredPosts &&
+      {filteredPosts.length > 0 ? (
         filteredPosts.map((post) => (
           <NavLink
             key={post.id}
@@ -135,7 +142,10 @@ export const ExplorePage = () => {
               </div>
             </div>
           </NavLink>
-        ))}
+        ))
+      ) : (
+        <p className="text-gray-text">No posts found.</p>
+      )}
     </div>
   );
 };

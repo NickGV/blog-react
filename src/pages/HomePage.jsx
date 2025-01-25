@@ -14,7 +14,6 @@ export const HomePage = () => {
     <main className="text-white p-4 w-full flex flex-col mt-16">
       <div className="flex flex-col md:flex-row justify-between items-center mb-8">
         <h1 className="text-4xl font-bold">Welcome to My Blog</h1>
-        <SearchBar />
       </div>
       <section className="mb-8">
         <h2 className="text-3xl font-bold mb-4">Latest Blogs</h2>
