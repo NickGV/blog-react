@@ -11,7 +11,7 @@ export const NavBar = () => {
         <div className="flex items-center">
           <h1 className="text-2xl font-bold">My Blog</h1>
           <ul className="flex ml-4 space-x-4">
-            <NavLink to="/" className="hover:bg-gray-hovered px-3 py-2 rounded">
+            <NavLink to="/home" className="hover:bg-gray-hovered px-3 py-2 rounded">
               <li className="flex items-center">
                 <i className="fa-solid fa-house mr-2"></i>Home
               </li>
