@@ -10,7 +10,7 @@ export const PostsGridItem = ({ post }) => {
       <div className="relative flex flex-col items-center w-full h-full">
         <div className="h-full w-full">
           <img
-            src={post.image}
+            src={post.image || "https://via.placeholder.com/150"}
             alt=""
             className="h-full w-full object-cover transition-opacity duration-300 group-hover:opacity-75 rounded"
           />

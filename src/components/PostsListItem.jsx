@@ -19,7 +19,7 @@ export const PostsListItem = ({ post }) => {
       <div className="flex gap-3">
         <div className="w-12 h-12 flex-shrink-0">
           <img
-            src={post.image}
+            src={post.image || "https://via.placeholder.com/150"}
             alt={post.title}
             className="w-full h-full object-cover rounded"
           />
