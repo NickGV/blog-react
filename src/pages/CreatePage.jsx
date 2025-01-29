@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { MarkdownRender } from "../components/MarkdownRender";
 import { PostsContext } from "../context/PostsContext";
+import { AuthContext } from "../context/AuthContext";
 
 export const CreatePage = () => {
   const [title, setTitle] = useState("");
@@ -9,6 +10,7 @@ export const CreatePage = () => {
   const [content, setContent] = useState("");
   const [showPreview, setShowPreview] = useState(false);
   const [error, setError] = useState("");
+  const { user } = useContext(AuthContext);
 
   const { addPost } = useContext(PostsContext);
 
@@ -23,6 +25,7 @@ export const CreatePage = () => {
       content,
       image,
       tags: tags.split(",").map((tag) => tag.trim()),
+      authorId: user.id,
     };
 
     try {
