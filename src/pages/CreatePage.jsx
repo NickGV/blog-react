@@ -12,27 +12,30 @@ export const CreatePage = () => {
 
   const { addPost } = useContext(PostsContext);
 
-  const handleSave = () => {
+  const handleSave = async () => {
     if (!title.trim() || !content.trim() || !tags.trim()) {
       setError("Please fill in all required fields.");
       return;
     }
 
     const newPost = {
-      id: Date.now(),
       title,
       content,
       image,
       tags: tags.split(",").map((tag) => tag.trim()),
-      comments: [],
     };
-    addPost(newPost);
-    setTitle("");
-    setImage("https://via.placeholder.com/150");
-    setTags("");
-    setContent("");
-    setShowPreview(false);
-    setError("");
+
+    try {
+      await addPost(newPost);
+      setTitle("");
+      setImage("https://via.placeholder.com/150");
+      setTags("");
+      setContent("");
+      setShowPreview(false);
+      setError("");
+    } catch (error) {
+      setError("An error occurred while saving the post.");
+    }
   };
 
   const handlePreview = () => {

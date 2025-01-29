@@ -1,67 +1,79 @@
 import { useEffect, useState } from "react";
 import { PostsContext } from "./PostsContext";
-import postsData from "../data/posts.json"; // Asegúrate de que el path sea correcto
 
 export const PostsProvider = ({ children }) => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    const storedPosts = localStorage.getItem("posts");
-
-    try {
-      const parsedPosts = storedPosts ? JSON.parse(storedPosts) : [];
-
-      setPosts(parsedPosts);
-    } catch (error) {
-      console.error("Error parsing JSON from localStorage", error);
-      setPosts([]);
-    }
-
-    if (posts.length === 0) {
-      loadPostsFromJson();
-    }
+    loadPostsFromApi();
   }, []);
 
-  const loadPostsFromJson = () => {
+  const loadPostsFromApi = async () => {
     try {
-      const postsFromJson = postsData.map((post) => ({
-        ...post,
-        comments: post.comments || [],
-      }));
-      setPosts(postsFromJson);
-      localStorage.setItem("posts", JSON.stringify(postsFromJson));
+      const response = await fetch("http://localhost:3000/posts");
+      const data = await response.json();
+      setPosts(data.posts);
     } catch (error) {
-      console.error("Error loading posts from JSON", error);
+      console.error("Error fetching posts from API", error);
     }
   };
 
-  const addPost = (post) => {
-    const updatedPosts = [...posts, post];
-    setPosts(updatedPosts);
-    localStorage.setItem("posts", JSON.stringify(updatedPosts));
+  const addPost = async (post) => {
+    try {
+      const token = localStorage.getItem("token");
+      const response = await fetch("http://localhost:3000/posts", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`
+        },
+        body: JSON.stringify(post),
+      });
+      const data = await response.json();
+      setPosts((prevPosts) => [...prevPosts, data.post]);
+    } catch (error) {
+      console.error("Error adding post", error);
+    }
   };
 
-  const updatePost = (post) => {
-    const updatedPosts = posts.map((p) => (p.id === post.id ? post : p));
-    setPosts(updatedPosts);
-    localStorage.setItem("posts", JSON.stringify(updatedPosts));
+  const updatePost = async (post) => {
+    try {
+      const token = localStorage.getItem("token");
+      const response = await fetch(`http://localhost:3000/posts/${post.id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`
+        },
+        body: JSON.stringify(post),
+      });
+      const data = await response.json();
+      setPosts((prevPosts) =>
+        prevPosts.map((p) => (p.id === post.id ? data.post : p))
+      );
+    } catch (error) {
+      console.error("Error updating post", error);
+    }
   };
 
-  const deletePost = (id) => {
-    const updatedPosts = posts.filter((p) => p.id !== id);
-    setPosts(updatedPosts);
-    localStorage.setItem("posts", JSON.stringify(updatedPosts));
+  const deletePost = async (id) => {
+    try {
+      const token = localStorage.getItem("token");
+      await fetch(`http://localhost:3000/posts/${id}`, {
+        method: "DELETE",
+        headers: {
+          "Authorization": `Bearer ${token}`
+        }
+      });
+      setPosts((prevPosts) => prevPosts.filter((post) => post.id !== id));
+    } catch (error) {
+      console.error("Error deleting post", error);
+    }
   };
 
   return (
     <PostsContext.Provider
-      value={{
-        posts,
-        setPosts,
-        addPost,
-        updatePost,
-        deletePost,
-      }}
+      value={{ posts, addPost, updatePost, deletePost }}
     >
       {children}
     </PostsContext.Provider>
