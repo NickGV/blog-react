@@ -3,8 +3,10 @@ import { Post } from "../components/Post";
 import { Comments } from "../components/Comments";
 import { useContext, useState } from "react";
 import { PostsContext } from "../context/PostsContext";
+import { AuthContext } from "../context/AuthContext";
 
 export const PostPage = () => {
+  const { user } = useContext(AuthContext);
   const { posts, updatePost, deletePost } = useContext(PostsContext);
   const { id } = useParams();
   const navigate = useNavigate();
@@ -101,18 +103,22 @@ export const PostPage = () => {
       ) : (
         <div className="w-full">
           <Post post={post} />
-          <button
-            className="mt-4 px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-md"
-            onClick={() => setIsEditing(true)}
-          >
-            Edit Post
-          </button>
-          <button
-            className="mt-4 px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-md"
-            onClick={handleDelete}
-          >
-            Delete Post
-          </button>
+          {user.id === post.authorId && (
+            <>
+              <button
+                className="mt-4 px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-md"
+                onClick={() => setIsEditing(true)}
+              >
+                Edit Post
+              </button>
+              <button
+                className="mt-4 px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-md"
+                onClick={handleDelete}
+              >
+                Delete Post
+              </button>
+            </>
+          )}
           <Comments />
         </div>
       )}

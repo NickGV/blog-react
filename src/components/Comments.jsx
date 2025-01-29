@@ -37,7 +37,7 @@ export const Comments = () => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": `Bearer ${token}`
+          Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({ content: newComment, postId }),
       });
@@ -57,10 +57,12 @@ export const Comments = () => {
       await fetch(`http://localhost:3000/comments/${commentId}`, {
         method: "DELETE",
         headers: {
-          "Authorization": `Bearer ${token}`
-        }
+          Authorization: `Bearer ${token}`,
+        },
       });
-      setComments((prevComments) => prevComments.filter((comment) => comment.id !== commentId));
+      setComments((prevComments) =>
+        prevComments.filter((comment) => comment.id !== commentId)
+      );
     } catch (error) {
       console.error("Error deleting comment", error);
     }
@@ -68,9 +70,29 @@ export const Comments = () => {
 
   return (
     <div className="comments-section mt-8">
-      <h2 className="text-2xl font-bold mb-4">Comments</h2>
+      <h2 className="text-2xl font-bold mb-4 text-white">Comments</h2>
       {comments.map((comment) => (
-        <div key={comment.id} className="comment mb-4 p-4 border rounded bg-gray-800 text-white">
+        <div
+          key={comment.id}
+          className="comment mb-4 p-4 border rounded-lg bg-gray-800 text-white shadow-md"
+        >
+          <div className="flex items-center mb-2">
+            <div className="flex-shrink-0">
+              <img
+                className="h-10 w-10 rounded-full"
+                src={`https://ui-avatars.com/api/?name=${comment.author.username}&background=random`}
+                alt={comment.author.username}
+              />
+            </div>
+            <div className="ml-3">
+              <p className="text-sm font-medium text-gray-300">
+                {comment.author.username}
+              </p>
+              <p className="text-xs text-gray-400">
+                {new Date(comment.createdAt).toLocaleString()}
+              </p>
+            </div>
+          </div>
           <p className="mb-2">{comment.content}</p>
           {user && user.id === comment.authorId && (
             <button
@@ -85,7 +107,7 @@ export const Comments = () => {
       {user && (
         <div className="add-comment mt-4">
           <textarea
-            className="w-full p-4 border rounded bg-gray-800 text-white"
+            className="w-full p-4 border rounded-lg bg-gray-800 text-white"
             value={newComment}
             onChange={(e) => setNewComment(e.target.value)}
             placeholder="Add a comment..."
