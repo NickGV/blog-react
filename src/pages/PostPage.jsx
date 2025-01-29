@@ -1,5 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { Post } from "../components/Post";
+import { Comments } from "../components/Comments";
 import { useContext, useState } from "react";
 import { PostsContext } from "../context/PostsContext";
 
@@ -112,6 +113,7 @@ export const PostPage = () => {
           >
             Delete Post
           </button>
+          <Comments />
         </div>
       )}
     </div>

@@ -7,7 +7,6 @@ import { PostsContext } from "../context/PostsContext";
 export const HomePage = () => {
   const { posts } = useContext(PostsContext);
 
-  // Get the latest posts
   const latestPosts = posts.slice(0, 3);
 
   return (
