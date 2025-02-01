@@ -10,7 +10,7 @@ export const PostsProvider = ({ children }) => {
 
   const loadPostsFromApi = async () => {
     try {
-      const response = await fetch("http://blogi-api.up.railway.app/posts");
+      const response = await fetch("https://blogi-api.up.railway.app/posts");
       const data = await response.json();
       setPosts(data.posts);
     } catch (error) {
@@ -21,7 +21,7 @@ export const PostsProvider = ({ children }) => {
   const addPost = async (post) => {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("http://blogi-api.up.railway.app/posts", {
+      const response = await fetch("https://blogi-api.up.railway.app/posts", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -39,7 +39,7 @@ export const PostsProvider = ({ children }) => {
   const updatePost = async (post) => {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch(`http://blogi-api.up.railway.app/posts/${post.id}`, {
+      const response = await fetch(`https://blogi-api.up.railway.app/posts/${post.id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -59,7 +59,7 @@ export const PostsProvider = ({ children }) => {
   const deletePost = async (id) => {
     try {
       const token = localStorage.getItem("token");
-      await fetch(`http://blogi-api.up.railway.app/posts/${id}`, {
+      await fetch(`https://blogi-api.up.railway.app/posts/${id}`, {
         method: "DELETE",
         headers: {
           "Authorization": `Bearer ${token}`

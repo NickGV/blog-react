@@ -16,7 +16,7 @@ export const Comments = () => {
   const loadComments = async () => {
     try {
       const response = await fetch(
-        `http://blogi-api.up.railway.app/comments/post/${postId}`
+        `https://blogi-api.up.railway.app/comments/post/${postId}`
       );
       const data = await response.json();
       setComments(data.comments);
@@ -33,7 +33,7 @@ export const Comments = () => {
 
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("http://blogi-api.up.railway.app/comments", {
+      const response = await fetch("https://blogi-api.up.railway.app/comments", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -54,7 +54,7 @@ export const Comments = () => {
   const handleDeleteComment = async (commentId) => {
     try {
       const token = localStorage.getItem("token");
-      await fetch(`http://blogi-api.up.railway.app/comments/${commentId}`, {
+      await fetch(`https://blogi-api.up.railway.app/comments/${commentId}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,
