@@ -1,6 +1,6 @@
 # Blogi
 
-Blogi is a simple blogging application built with React. It allows users to create, read, update, and delete blog posts.
+Blogi is a simple blogging application built with React. It allows users to create, read, update, and delete blog posts. The application now uses a custom API built by the developer.
 
 ## Visit the page here: [Visit](https://blogi-nickgv.netlify.app)
 
@@ -9,6 +9,7 @@ Blogi is a simple blogging application built with React. It allows users to crea
 - [Installation](#installation)
 - [Usage](#usage)
 - [Features](#features)
+- [API](#api)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -36,6 +37,24 @@ To use the application, follow these steps:
 - Markdown support for writing posts
 - Responsive design for desktop and mobile devices
 - User authentication (coming soon)
+
+## API
+
+The application uses a custom API built with Express and Prisma. The API provides endpoints for user authentication, managing posts, and managing comments.
+
+### Endpoints
+
+- `POST /auth/signup`: Sign up a new user
+- `POST /auth/login`: Log in an existing user
+- `GET /posts`: Get all posts
+- `GET /posts/:id`: Get a single post by ID
+- `POST /posts`: Create a new post (requires authentication)
+- `PUT /posts/:id`: Update a post by ID (requires authentication)
+- `DELETE /posts/:id`: Delete a post by ID (requires authentication)
+- `POST /comments`: Create a new comment (requires authentication)
+- `GET /comments/post/:postId`: Get comments for a specific post
+- `PUT /comments/:id`: Update a comment by ID (requires authentication)
+- `DELETE /comments/:id`: Delete a comment by ID (requires authentication)
 
 ## Contributing
 
